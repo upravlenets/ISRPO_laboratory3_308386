@@ -5,16 +5,16 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>LearningPD</name>
+    <name>lab3_ISRPO</name>
     <version>"1.0-SNAPSHOT"</version>
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="deniskadyrov777@gmail.com" url="https://www.pdlearning.com">Student</vendor>
+    <vendor email="308386@edu.itmo.ru" url="https://www.pdlearning.com">Student</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Это мой первый плагин, предназначенный для выполнения лабораторной работы по ИСРПО
+    Я кое-как это смог сделать
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -29,10 +29,18 @@
 
 
     <actions>
-        <group id="LearningPD.HelloAction" text="LearningPD" description="About PD">
-            <action class="com.my_plugin.lab3_isrpo.action" id="LearningPD.Actions.ChatGPTActionWeb" text="Do my action" description="Открыть Chat GPT">
-                <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-                <keyboard-shortcut keymap="$default" first-keystroke="shift control I"/>
+        <group id="lab3_isrpo" text="lab3" description="isrpo">
+
+            <action class="com.my_plugin.lab3_isrpo.action" id="LearningPD.Actions.ChatGPTActionWeb" text="openYandex">
+                <keyboard-shortcut keymap="$default" first-keystroke="shift control 0"/>
+            </action>
+
+            <action id="com.my_plugin.lab3_isrpo.action2" class="com.my_plugin.lab3_isrpo.action2" text="openGoogle">
+                <keyboard-shortcut keymap="$default" first-keystroke="shift control 9"/>
+            </action>
+
+            <action id="com.my_plugin.lab3_isrpo.action3" class="com.my_plugin.lab3_isrpo.action3" text="openYouTube">
+                <keyboard-shortcut keymap="$default" first-keystroke="shift control 8"/>
             </action>
         </group>
     </actions>

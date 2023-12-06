@@ -11,7 +11,63 @@ import java.net.URI
 
 class action : AnAction() {
     override fun actionPerformed(e: AnActionEvent) {
-        val url = "https://ya.ru/?utm_referrer=https%3A%2F%2Fwww.google.com%2F"
+        val url = "https://ya.ru/?utm_referrer=https%3A%2F%2F"
+        val editor = e.getData(CommonDataKeys.EDITOR)
+        val document = editor?.document
+        val selection = editor?.selectionModel
+        if (selection?.hasSelection() == true) {
+            val start = selection.selectionStart
+            val end = selection.selectionEnd
+
+            val selectedCode = document?.getText(TextRange(start, end))
+
+            if (selectedCode != null) {
+                copyToClipboard(selectedCode)
+            }
+        }
+        try {
+            Desktop.getDesktop().browse(URI(url))
+        } catch (exception: Exception) {
+            exception.printStackTrace()
+        }
+    }
+    private fun copyToClipboard(text: String) {
+        val stringSelection = StringSelection(text + " how it works")
+        val clipboard = Toolkit.getDefaultToolkit().systemClipboard
+        clipboard.setContents(stringSelection, null)
+    }
+}
+class action2 : AnAction() {
+    override fun actionPerformed(e: AnActionEvent) {
+        val url = "https://www.google.com/?client=safari"
+        val editor = e.getData(CommonDataKeys.EDITOR)
+        val document = editor?.document
+        val selection = editor?.selectionModel
+        if (selection?.hasSelection() == true) {
+            val start = selection.selectionStart
+            val end = selection.selectionEnd
+
+            val selectedCode = document?.getText(TextRange(start, end))
+
+            if (selectedCode != null) {
+                copyToClipboard(selectedCode)
+            }
+        }
+        try {
+            Desktop.getDesktop().browse(URI(url))
+        } catch (exception: Exception) {
+            exception.printStackTrace()
+        }
+    }
+    private fun copyToClipboard(text: String) {
+        val stringSelection = StringSelection(text + " how it works")
+        val clipboard = Toolkit.getDefaultToolkit().systemClipboard
+        clipboard.setContents(stringSelection, null)
+    }
+}
+class action3 : AnAction() {
+    override fun actionPerformed(e: AnActionEvent) {
+        val url = "https://www.youtube.com"
 
         val editor = e.getData(CommonDataKeys.EDITOR)
         val document = editor?.document
@@ -34,9 +90,8 @@ class action : AnAction() {
             exception.printStackTrace()
         }
     }
-
     private fun copyToClipboard(text: String) {
-        val stringSelection = StringSelection(text + "\nНайди ошибку в коде и исправь её")
+        val stringSelection = StringSelection(text + " how it works")
         val clipboard = Toolkit.getDefaultToolkit().systemClipboard
         clipboard.setContents(stringSelection, null)
     }
